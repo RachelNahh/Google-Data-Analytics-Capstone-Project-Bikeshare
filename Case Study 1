@@ -1,4 +1,19 @@
+# Google Data Analytics Capstone Project
+## Case Study 1: Cyclistic bike-share analysis case study
+### Background
+In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime.
 
+Until now, Cyclistic’s marketing strategy relied on building general awareness and appealing to broad consumer segments. One approach that helped make these things possible was the flexibility of its pricing plans: single-ride passes, full-day passes, and annual memberships. Customers who purchase single-ride or full-day passes are referred to as casual riders. Customers who purchase annual memberships are Cyclistic members.
+
+Cyclistic’s finance analysts have concluded that annual members are much more profitable than casual riders. Although the pricing flexibility helps Cyclistic attract more customers, Lily Moreno (director of marketing) believes that maximizing the number of annual members will be key to future growth. Rather than creating a marketing campaign that targets all-new customers, Moreno believes there is a very good chance to convert casual riders into members
+
+### Business Task
+To design marketing strategies aimed at converting casual riders into annual members.
+
+In order to do so, the marketing analyst team needs to understand the following:
+1. How do annual members and casual riders use Cyclistic bikes differently?
+2. Why would casual riders buy Cyclistic annual memberships?
+3. How can Cyclistic use digital media to influence casual riders to become members?
 
 ### The Analysis
 
@@ -11,4 +26,49 @@ Based on the past year data, currently the Members make up 57% of the riders, wh
 
 ##### 1.2 Bike type breakdown
 
+The choice of bikes between the 2 rider groups are similar. There were slightly more take up for classic bikes (~50% range) compared to electric bikes (~40% range) for both groups. 
 
+#### 2. Ridership breakdown by duration
+
+Duration breakdown for Member riders show 54% of Member riders cycle for less than 10 minutes, 28% cycle between 10 to 20 minutes. Short commute of up to 20 minutes total to 82% of Member ridership. This suggests that Member riders use the bike mainly for short commute.
+
+There is an equal mix of Casual riders riding for less than 10 minutes (32%) and between 10 to 20 minutes (31%). The next 2 duration categories "between 20 to 30 minutes" and "30 minutes up to an hour" makes up 15% and 14% of Casual rider ridership. More Casual riders are riding for a longer duration compared to Member riders, indicating that there are more Causal riders cycle for leisure.
+
+#### 3. Ridership grouped by Day of the Week
+
+The ridership of Member riders are generally more consistent throughout the week compared to Casual riders, with more riders using the bike during weekdays.
+Casual riders' bike usage is significantly higher during weekends.
+
+#### 4. Ridership breakdown by Month
+
+The ridership of Member riders are generally more consistent throughout the week compared to Casual riders, with more riders using the bike during weekdays.
+Casual riders' bike usage is significantly higher during weekends.
+
+#### 5. Ridership breakdown by Month
+
+The Member riders dataset has 3 peak period that stands out:
+
+* 7 - 8am, which coincides with the morning rush hour
+* 12pm, the lunch hour
+* 3-7pm , which overlaps with the evening rush hours
+
+Member riders are using the bike for short commute to-and-fro work/school and during lunch hour.
+
+The Casual riders dataset shows ridership increases through the day from 10 am on and peak at 5pm, suggesting that Casual riders are using the bike for leisure and/or running errands.
+
+
+#### 6. Summary of Rider Behaviour
+
+### Recommendation
+
+As a refresher, the finance team has concluded that annual members are much more profitable than casual riders. Thus the management are looking to maximise the number of annual memberships. 
+
+Before designing a new marketing strategy to convert casual riders to annual members, we need to understand the bike usage behaviour difference between the 2 groups. 
+Through the analysis, we have learnt that Member riders use the bike mainly for daily commute: weekday rides, duration within 10 minutes, peak period of morning rush hours, lunch hour and evening rush hours. Casual riders mainly use the bike for leisure purpose or running errands: weekend rides, duration of up to 20 minutes, riding between time period of 10am to evening. It has been determined that the bike usage pattern of Member riders and Casual riders are different. Therefore, it might take more than marketing strategies to entice Casual riders to commit to subscription. 
+
+Firstly, there is a need to take a closer look at Casual riders. There is a need to differentiate Casual riders who resides in Chicago from Tourists, as it is plausible for residents to commit to an annual subscription. As the frequency of Casual riders riding the bikes are lower than Member riders, the existing annual subscription package may be deemed as uneconomical for their usage. 
+A suggestion would be to devise a new shorter ride subscription pass for these Casual riders. 
+Another group of people who may use the Single Ride options are the Tourists. A subscription plan may not be enticing to Tourist, it might be worthwhile to explore multi-day short commute pass for Tourist. 
+An important next step would be to conduct a survey to hear directly from the users themselves: what would entice them to commit to subscription plan, what features do they want, how can we improve the user experience, in order to better understand their needs. 
+
+### Summary
