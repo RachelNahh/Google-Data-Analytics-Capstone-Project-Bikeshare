@@ -1,0 +1,75 @@
+WITH 
+difference_in_seconds AS(
+  SELECT 
+    started_at,
+    ended_at,
+    member_casual,
+    rideable_type,
+    EXTRACT(TIME FROM started_at) AS start_time,
+    (TIMESTAMP_DIFF(ended_at, started_at, SECOND)/60) AS duration_min, 
+    FORMAT_DATE("%A", started_at) AS day_of_week,
+    FORMAT_TIMESTAMP('%b-%Y', TIMESTAMP(`started_at`)) AS month
+  FROM `my-project-case-study-1-358811.divvy_tripdata.divvy tripdata 08-2021 to 07-2022`),
+  category AS (
+    SELECT
+    rideable_type,
+    member_casual,
+    duration_min,
+    start_time,
+    day_of_week,
+    month,
+    (CASE         --categorise ride start time--
+      WHEN start_time BETWEEN '05:00:00' AND '05:59:59' THEN "5am"
+      WHEN start_time BETWEEN '06:00:00' AND '06:59:59' THEN "6am"
+      WHEN start_time BETWEEN '07:00:00' AND '07:59:59' THEN "7am"
+      WHEN start_time BETWEEN '08:00:00' AND '08:59:59' THEN "8am"
+      WHEN start_time BETWEEN '09:00:00' AND '09:59:59' THEN "9am"
+      WHEN start_time BETWEEN '10:00:00' AND '10:59:59' THEN "10am"
+      WHEN start_time BETWEEN '11:00:00' AND '11:59:59' THEN "11am"
+      WHEN start_time BETWEEN '12:00:00' AND '12:59:59' THEN "12pm"
+      WHEN start_time BETWEEN '13:00:00' AND '13:59:59' THEN "1pm"
+      WHEN start_time BETWEEN '14:00:00' AND '14:59:59' THEN "2pm"
+      WHEN start_time BETWEEN '15:00:00' AND '15:59:59' THEN "3pm"
+      WHEN start_time BETWEEN '16:00:00' AND '16:59:59' THEN "4pm"
+      WHEN start_time BETWEEN '17:00:00' AND '17:59:59' THEN "5pm"
+      WHEN start_time BETWEEN '18:00:00' AND '18:59:59' THEN "6pm"
+      WHEN start_time BETWEEN '19:00:00' AND '19:59:59' THEN "7pm"
+      WHEN start_time BETWEEN '20:00:00' AND '20:59:59' THEN "8pm"
+      WHEN start_time BETWEEN '21:00:00' AND '21:59:59' THEN "9pm"
+      WHEN start_time BETWEEN '22:00:00' AND '22:59:59' THEN "10pm"
+      WHEN start_time BETWEEN '23:00:00' AND '23:59:59' THEN "11pm"
+      ELSE "between 12am to 5am"
+      END) AS time_description,
+    (CASE       --categorise ride duration--
+      WHEN duration_min <= 1 THEN "less than 1 minute"
+      WHEN duration_min BETWEEN 1 AND 10 THEN "more than 1 minute up to 10 minutes"
+      WHEN duration_min BETWEEN 10.1 AND 20 THEN "more than 10 minutes up to 20 minutes"
+      WHEN duration_min BETWEEN 20.1 AND 30 THEN "more than 20 minutes up to 30 minutes"
+      WHEN duration_min BETWEEN 30.1 AND 60 THEN "more than 30 minutes up to 1 hour"
+      WHEN duration_min BETWEEN 60.1 AND 180 THEN "more than 1 hour up to 3 hours"
+      WHEN duration_min BETWEEN 180.1 AND 360 THEN "more than 3 hours up to 6 hours"
+      WHEN duration_min BETWEEN 360.1 AND 720 THEN "more than 6 hours up to 12 hours"
+      WHEN duration_min BETWEEN 720.1 AND 1440 THEN "more than 12 hours up to 24 hours"
+      ELSE "more than 24 hours"
+      END) AS duration_description
+  FROM 
+    difference_in_seconds
+  WHERE duration_min > 1) --filter out ride duration less than 1 min--
+  
+ SELECT
+  member_casual,
+  rideable_type,
+  day_of_week,
+  time_description,
+  duration_description,
+  month,
+  COUNT(*) AS num_of_rides
+FROM  
+  category
+GROUP BY
+  member_casual,
+  rideable_type,
+  day_of_week,
+  time_description,
+  duration_description,
+  month
