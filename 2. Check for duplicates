@@ -1,0 +1,5 @@
+SELECT * 
+FROM (
+  SELECT *, COUNT(*) OVER(PARTITION BY ride_id) AS dup_count
+  FROM `my-project-case-study-1-358811.divvy_tripdata.divvy tripdata 08-2021 to 07-2022`)
+WHERE dup_count > 1
