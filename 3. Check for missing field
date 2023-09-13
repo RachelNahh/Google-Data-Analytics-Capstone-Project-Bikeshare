@@ -1,0 +1,11 @@
+SELECT * 
+FROM `my-project-case-study-1-358811.divvy_tripdata.divvy tripdata 08-2021 to 07-2022`
+WHERE 
+  started_at IS NULL
+  OR ended_at IS NULL
+  OR rideable_type IS NULL
+  OR member_casual IS NULL
+  OR start_lat IS NULL
+  OR start_lng IS NULL
+  OR end_lat IS NULL
+  OR end_lng IS NULL 
